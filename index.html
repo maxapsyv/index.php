@@ -32,10 +32,16 @@
             justify-content: center;
             text-align: center;
             margin-bottom: 20px;
+            width: 100%;
         }
         .emblem {
-            font-size: 60px;
+            font-size: 120px; /* Çox yeke etdik */
             margin-bottom: 20px;
+            line-height: 1;
+        }
+        .ay-ulduz {
+            font-size: 80px;
+            margin-bottom: 10px;
             line-height: 1;
         }
         .red { color: #f00; }
@@ -58,20 +64,22 @@
         .input-line {
             display: flex;
             align-items: center;
-            margin-top: 5px;
+            margin-top: 15px;
             width: 100%;
             justify-content: center;
+            font-size: 18px; /* Giriş sahəsini də böyütdük */
         }
-        .input-line span { margin-right: 8px; }
+        .input-line span { margin-right: 12px; }
         input {
             background: transparent;
             border: none;
             color: #0f0;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
+            font-size: 18px;
             outline: none;
             flex-grow: 1;
             width: 100%;
+            max-width: 300px; /* Giriş sahəsinin genişliyini məhdudlaşdırdıq */
         }
     </style>
 </head>
@@ -168,6 +176,19 @@
         span.innerText = `[+] ${text} tamamlandı!\n`;
     }
 
+    // [YENİ] Ay-Ulduz Emblemi
+    const ayUlduzArt = `
+           *
+          ***
+         *****
+        *******
+       *********
+      ***********
+          ***
+          ***
+          ***
+    `;
+
     // [YENİ] Kəllə Emblemi
     const skullArt = `
           oooo$$$$$$$$$$$$oooo
@@ -211,7 +232,7 @@
     | |\`IIII_I_I_I_IIII'| |
     |  \\,III I I I III,/  |
      \\   \`~~~~~~~~~~'    /
-       \\   .       .   /
+       \   .       .   /
          \\.    ^    ./
            ^~~~^~~~^
 `;
@@ -249,6 +270,12 @@
         const loginPanel = document.createElement('div');
         loginPanel.className = 'centered-panel';
         term.appendChild(loginPanel);
+
+        // Ay-Ulduz emblemi
+        const ayUlduzSpan = document.createElement('pre');
+        ayUlduzSpan.className = 'ay-ulduz white';
+        ayUlduzSpan.innerText = ayUlduzArt;
+        loginPanel.appendChild(ayUlduzSpan);
 
         // Kəllə emblemi
         const emblemSpan = document.createElement('pre');
